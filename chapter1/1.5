@@ -1,0 +1,20 @@
+"""
+(define (p) (p))
+(define (test x y)
+    (if (= x 0) 0 y))
+
+(test 0 (p))
+"""
+
+If the interpreter is using applicative-order evaluation then it will try to evalute every arguments before appliying the function.
+and becuase (p) is a recuresive function with no base case it will continue to evalute forever (infint loop).
+
+but if the interpreter is using normal-order evaluation then it will try to evalute the function before the arguments so it will be expanded to
+
+"""
+(if (= 0 0)
+    0
+    (p))
+"""
+
+then it will not evalute (p) and it will return 0.
